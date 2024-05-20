@@ -20,10 +20,22 @@ describe(`Function 'checkPassword':`, () => {
   });
 
   it(`should return 'false' for password shorter than 8 characters`, () => {
-    expect(checkPassword('Pass!1')).toBe(false);
+    expect(checkPassword('Pas!1')).toBe(false);
   });
 
-  it(`should return 'false' for password longer than 16 characters`, () => {
+  it(`should return 'false' for password with 7 characters`, () => {
+    expect(checkPassword('Pass!12')).toBe(false);
+  });
+
+  it(`should return 'true' for password with 8 characters`, () => {
+    expect(checkPassword('Pass!123')).toBe(true);
+  });
+
+  it(`should return 'true' for password with 16 characters`, () => {
+    expect(checkPassword('Password@word012')).toBe(true);
+  });
+
+  it(`should return 'false' for password with 17 characters`, () => {
     expect(checkPassword('P@ssword.pass!123')).toBe(false);
   });
 
