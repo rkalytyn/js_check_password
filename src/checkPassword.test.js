@@ -11,24 +11,20 @@ describe(`Function 'checkPassword':`, () => {
     expect(typeof checkPassword('Password!1')).toBe('boolean');
   });
 
-  it(`should return 'true' for the valid password with 8 characters`, () => {
-    expect(checkPassword('P@ssw0rd')).toBe(true);
-  });
-
   it(`should return 'false' for the password with cyrrilic letters`, () => {
     expect(checkPassword('Пароль1!')).toBe(false);
   });
 
-  it(`should return 'false' for password shorter than 8 characters`, () => {
-    expect(checkPassword('Pas!1')).toBe(false);
+  it(`should return 'false' for short password`, () => {
+    expect(checkPassword('P!1')).toBe(false);
   });
 
   it(`should return 'false' for password with 7 characters`, () => {
     expect(checkPassword('Pass!12')).toBe(false);
   });
 
-  it(`should return 'true' for password with 8 characters`, () => {
-    expect(checkPassword('Pass!123')).toBe(true);
+  it(`should return 'true' for the valid password with 8 characters`, () => {
+    expect(checkPassword('P@ssw0rd')).toBe(true);
   });
 
   it(`should return 'true' for password with 16 characters`, () => {
